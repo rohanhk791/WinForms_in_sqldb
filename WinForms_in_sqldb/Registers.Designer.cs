@@ -56,10 +56,12 @@ namespace WinForms_in_sqldb
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_id = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.grid_details = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_age)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_details)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // numericUpDown1
@@ -125,7 +127,7 @@ namespace WinForms_in_sqldb
             // 
             // btn_view
             // 
-            this.btn_view.Location = new System.Drawing.Point(352, 368);
+            this.btn_view.Location = new System.Drawing.Point(432, 368);
             this.btn_view.Name = "btn_view";
             this.btn_view.Size = new System.Drawing.Size(75, 23);
             this.btn_view.TabIndex = 49;
@@ -134,25 +136,27 @@ namespace WinForms_in_sqldb
             // 
             // btn_clear
             // 
-            this.btn_clear.Location = new System.Drawing.Point(448, 368);
+            this.btn_clear.Location = new System.Drawing.Point(528, 368);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(75, 23);
             this.btn_clear.TabIndex = 48;
             this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(544, 368);
+            this.btn_cancel.Location = new System.Drawing.Point(487, 583);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 47;
             this.btn_cancel.Text = "Close";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(256, 368);
+            this.btn_edit.Location = new System.Drawing.Point(336, 368);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(75, 23);
             this.btn_edit.TabIndex = 46;
@@ -162,12 +166,13 @@ namespace WinForms_in_sqldb
             // btn_add
             // 
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_add.Location = new System.Drawing.Point(160, 368);
+            this.btn_add.Location = new System.Drawing.Point(240, 368);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(75, 23);
             this.btn_add.TabIndex = 45;
             this.btn_add.Text = "Save";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // com_country
             // 
@@ -425,21 +430,43 @@ namespace WinForms_in_sqldb
             this.label1.Text = "Register Page";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // grid_details
+            // dataGridView1
             // 
-            this.grid_details.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_details.Location = new System.Drawing.Point(12, 424);
-            this.grid_details.Name = "grid_details";
-            this.grid_details.RowTemplate.Height = 25;
-            this.grid_details.Size = new System.Drawing.Size(776, 184);
-            this.grid_details.TabIndex = 57;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(74, 419);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(655, 145);
+            this.dataGridView1.TabIndex = 57;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Location = new System.Drawing.Point(378, 583);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete.TabIndex = 59;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(254, 583);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 58;
+            this.button1.Text = "Edit";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 671);
-            this.Controls.Add(this.grid_details);
+            this.ClientSize = new System.Drawing.Size(800, 635);
+            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.txt_qualification);
             this.Controls.Add(this.lbl_qualification);
@@ -472,7 +499,7 @@ namespace WinForms_in_sqldb
             this.Load += new System.EventHandler(this.Register_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_age)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_details)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,7 +534,9 @@ namespace WinForms_in_sqldb
         private System.Windows.Forms.Label lbl_name;
         private System.Windows.Forms.Label lbl_id;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView grid_details;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.Button btn_delete;
+        public System.Windows.Forms.Button button1;
     }
 }
 
