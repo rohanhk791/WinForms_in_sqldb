@@ -12,8 +12,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 
 namespace WinForms_in_sqldb
-{
-   
+{  
     public partial class Register : Form
     {
         public Register()
@@ -48,19 +47,9 @@ namespace WinForms_in_sqldb
         }
         public class sqlRegistrationDetail
         {
-            public int id;
-            public int age;
+            public int id, age;
             public long phone_no;
-
-            public string name;
-            public string gender;
-            public string city;
-            public string state;
-
-            public string country;
-            public string address;
-            public string qualification;
-
+            public string name, gender, city, state, country, address, qualification;
         }
 
         public bool validate()
@@ -113,7 +102,7 @@ namespace WinForms_in_sqldb
                             ((NumericUpDown)clear).Text = String.Empty;
                         }
                     }
-                    txt_name.Focus();
+                    //txt_name.Focus();
                 }
             }
             catch (Exception E)
@@ -304,4 +293,4 @@ namespace WinForms_in_sqldb
             }
         }
     }
-    }
+}

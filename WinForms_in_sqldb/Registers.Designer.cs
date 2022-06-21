@@ -63,7 +63,7 @@ namespace WinForms_in_sqldb
             // 
             // txt_qualification
             // 
-            this.txt_qualification.Location = new System.Drawing.Point(525, 202);
+            this.txt_qualification.Location = new System.Drawing.Point(540, 202);
             this.txt_qualification.Name = "txt_qualification";
             this.txt_qualification.Size = new System.Drawing.Size(143, 23);
             this.txt_qualification.TabIndex = 55;
@@ -72,7 +72,7 @@ namespace WinForms_in_sqldb
             // 
             this.lbl_qualification.AutoSize = true;
             this.lbl_qualification.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_qualification.Location = new System.Drawing.Point(407, 202);
+            this.lbl_qualification.Location = new System.Drawing.Point(422, 202);
             this.lbl_qualification.Name = "lbl_qualification";
             this.lbl_qualification.Size = new System.Drawing.Size(103, 19);
             this.lbl_qualification.TabIndex = 54;
@@ -80,14 +80,14 @@ namespace WinForms_in_sqldb
             // 
             // txt_phone_no
             // 
-            this.txt_phone_no.Location = new System.Drawing.Point(525, 163);
+            this.txt_phone_no.Location = new System.Drawing.Point(540, 163);
             this.txt_phone_no.Name = "txt_phone_no";
             this.txt_phone_no.Size = new System.Drawing.Size(143, 23);
             this.txt_phone_no.TabIndex = 53;
             // 
             // txt_address
             // 
-            this.txt_address.Location = new System.Drawing.Point(525, 240);
+            this.txt_address.Location = new System.Drawing.Point(540, 240);
             this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";
             this.txt_address.Size = new System.Drawing.Size(183, 67);
@@ -117,7 +117,7 @@ namespace WinForms_in_sqldb
             // 
             // btn_view
             // 
-            this.btn_view.Location = new System.Drawing.Point(329, 569);
+            this.btn_view.Location = new System.Drawing.Point(391, 563);
             this.btn_view.Name = "btn_view";
             this.btn_view.Size = new System.Drawing.Size(75, 23);
             this.btn_view.TabIndex = 49;
@@ -127,7 +127,7 @@ namespace WinForms_in_sqldb
             // 
             // btn_clear
             // 
-            this.btn_clear.Location = new System.Drawing.Point(537, 569);
+            this.btn_clear.Location = new System.Drawing.Point(541, 341);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(75, 23);
             this.btn_clear.TabIndex = 48;
@@ -137,7 +137,7 @@ namespace WinForms_in_sqldb
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(436, 569);
+            this.btn_cancel.Location = new System.Drawing.Point(498, 563);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 47;
@@ -147,7 +147,7 @@ namespace WinForms_in_sqldb
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(365, 341);
+            this.btn_update.Location = new System.Drawing.Point(346, 341);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(75, 23);
             this.btn_update.TabIndex = 46;
@@ -158,7 +158,7 @@ namespace WinForms_in_sqldb
             // btn_insert
             // 
             this.btn_insert.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_insert.Location = new System.Drawing.Point(269, 341);
+            this.btn_insert.Location = new System.Drawing.Point(250, 341);
             this.btn_insert.Name = "btn_insert";
             this.btn_insert.Size = new System.Drawing.Size(75, 23);
             this.btn_insert.TabIndex = 45;
@@ -182,7 +182,7 @@ namespace WinForms_in_sqldb
             "Germany",
             "Italy",
             "Spain"});
-            this.com_country.Location = new System.Drawing.Point(526, 127);
+            this.com_country.Location = new System.Drawing.Point(541, 127);
             this.com_country.Name = "com_country";
             this.com_country.Size = new System.Drawing.Size(142, 23);
             this.com_country.TabIndex = 44;
@@ -362,7 +362,7 @@ namespace WinForms_in_sqldb
             this.lbl_address.AutoSize = true;
             this.lbl_address.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_address.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_address.Location = new System.Drawing.Point(409, 240);
+            this.lbl_address.Location = new System.Drawing.Point(424, 240);
             this.lbl_address.Name = "lbl_address";
             this.lbl_address.Size = new System.Drawing.Size(73, 19);
             this.lbl_address.TabIndex = 39;
@@ -373,7 +373,7 @@ namespace WinForms_in_sqldb
             this.lbl_phone_no.AutoSize = true;
             this.lbl_phone_no.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_phone_no.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_phone_no.Location = new System.Drawing.Point(410, 167);
+            this.lbl_phone_no.Location = new System.Drawing.Point(425, 167);
             this.lbl_phone_no.Name = "lbl_phone_no";
             this.lbl_phone_no.Size = new System.Drawing.Size(79, 19);
             this.lbl_phone_no.TabIndex = 38;
@@ -384,7 +384,7 @@ namespace WinForms_in_sqldb
             this.lbl_country.AutoSize = true;
             this.lbl_country.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_country.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_country.Location = new System.Drawing.Point(410, 131);
+            this.lbl_country.Location = new System.Drawing.Point(425, 131);
             this.lbl_country.Name = "lbl_country";
             this.lbl_country.Size = new System.Drawing.Size(72, 19);
             this.lbl_country.TabIndex = 37;
@@ -450,7 +450,7 @@ namespace WinForms_in_sqldb
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(296, 63);
+            this.label1.Location = new System.Drawing.Point(328, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 26);
             this.label1.TabIndex = 30;
@@ -461,7 +461,7 @@ namespace WinForms_in_sqldb
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(66, 387);
+            this.dataGridView1.Location = new System.Drawing.Point(97, 392);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(655, 145);
@@ -471,7 +471,7 @@ namespace WinForms_in_sqldb
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(464, 341);
+            this.btn_delete.Location = new System.Drawing.Point(445, 341);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(75, 23);
             this.btn_delete.TabIndex = 59;
@@ -481,7 +481,7 @@ namespace WinForms_in_sqldb
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(223, 569);
+            this.btn_edit.Location = new System.Drawing.Point(285, 563);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(75, 23);
             this.btn_edit.TabIndex = 58;
@@ -494,7 +494,7 @@ namespace WinForms_in_sqldb
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(800, 628);
+            this.ClientSize = new System.Drawing.Size(843, 615);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.dataGridView1);
