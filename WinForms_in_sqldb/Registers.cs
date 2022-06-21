@@ -24,8 +24,7 @@ namespace WinForms_in_sqldb
         int _index;
         int _list;
         
-        SqlConnection con = new SqlConnection(@"Data Source=ROHAN\SQLEXPRESS;Initial Catalog=RegistrationDetails;Integrated Security=True");
-        
+        SqlConnection con = new SqlConnection(@"Data Source=ROHAN\SQLEXPRESS;Initial Catalog=RegistrationDetails;Integrated Security=True");      
         public int id;
         
         private void Register_Load(object sender, EventArgs e)
@@ -34,16 +33,13 @@ namespace WinForms_in_sqldb
         }
         public void detailslist()
         {
-
             SqlCommand cmd = new SqlCommand("select * from detail", con);
             DataTable table = new DataTable();
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
             table.Load(sdr);
             con.Close();
-
             dataGridView1.DataSource = table;
-
         }
         public class sqlRegistrationDetail
         {
@@ -146,13 +142,14 @@ namespace WinForms_in_sqldb
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@name", txt_name.Text);
                     cmd.Parameters.AddWithValue("@age", num_age.Text);
-                    cmd.Parameters.AddWithValue("@gender", rad_male.Text);
+                    cmd.Parameters.AddWithValue("@gender", genderChk());
                     cmd.Parameters.AddWithValue("@city", com_city.Text);
                     cmd.Parameters.AddWithValue("@state", com_state.Text);
                     cmd.Parameters.AddWithValue("@country", com_country.Text);
                     cmd.Parameters.AddWithValue("@phone_no", txt_phone_no.Text);
                     cmd.Parameters.AddWithValue("@address", txt_address.Text);
                     cmd.Parameters.AddWithValue("@qualification", txt_qualification.Text);
+                  
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -175,7 +172,21 @@ namespace WinForms_in_sqldb
                 MessageBox.Show(E.Message);
             }
         }
-            private void btn_cancel_Click(object sender, EventArgs e)
+
+        public string genderChk()
+        {
+            sqlRegistrationDetail sq = new sqlRegistrationDetail();
+            if (rad_male.Checked)
+                {
+                sq.gender = "Male";
+                }
+            else
+            {
+                sq.gender = "Female";
+            }
+            return sq.gender;
+        }
+        private void btn_cancel_Click(object sender, EventArgs e)
         {        
             Application.Exit();
         }
@@ -207,18 +218,27 @@ namespace WinForms_in_sqldb
                     cmd.Parameters.AddWithValue("@phone_no", txt_phone_no.Text);
                     cmd.Parameters.AddWithValue("@address", txt_address.Text);
                     cmd.Parameters.AddWithValue("@qualification", txt_qualification.Text);
-                    cmd.Parameters.AddWithValue("@id", this.id);
+                    cmd.Parameters.AddWithValue("@id",this.id);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
-                    this.Refresh();
-                   
-                    _list = dataGridView1.CurrentCell.RowIndex;
-                    
+                  _index= dataGridView1.CurrentCell.RowIndex;
+
+                    dataGridView1.Rows[_index].Cells[1].Value = txt_name.Text;
+                    dataGridView1.Rows[_index].Cells[2].Value = num_age.Text;
+                    dataGridView1.Rows[_index].Cells[3].Value = rad_male.Text;
+                    dataGridView1.Rows[_index].Cells[4].Value = com_city.Text;
+                    dataGridView1.Rows[_index].Cells[5].Value = com_state.Text;
+                    dataGridView1.Rows[_index].Cells[6].Value = com_country.Text;
+                    dataGridView1.Rows[_index].Cells[7].Value = txt_phone_no.Text;
+                    dataGridView1.Rows[_index].Cells[8].Value = txt_address.Text;
+                    dataGridView1.Rows[_index].Cells[9].Value = txt_qualification.Text;
 
                     string message = "Data updated in database";
                     string title = "Warning";
                     MessageBox.Show(message, title);
+
+                  
                 }
                 else
                 {
