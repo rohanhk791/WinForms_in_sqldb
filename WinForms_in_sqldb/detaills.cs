@@ -26,7 +26,7 @@ namespace WinForms_in_sqldb
 
         private void detaills_Load(object sender, EventArgs e)
         {
-            //reg.detailslist();
+            reg.detailslist();
         }
     }
 }

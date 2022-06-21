@@ -29,7 +29,6 @@ namespace WinForms_in_sqldb
         /// </summary>
         private void InitializeComponent()
         {
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.txt_qualification = new System.Windows.Forms.TextBox();
             this.lbl_qualification = new System.Windows.Forms.Label();
             this.txt_phone_no = new System.Windows.Forms.TextBox();
@@ -39,8 +38,8 @@ namespace WinForms_in_sqldb
             this.btn_view = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
-            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_update = new System.Windows.Forms.Button();
+            this.btn_insert = new System.Windows.Forms.Button();
             this.com_country = new System.Windows.Forms.ComboBox();
             this.com_state = new System.Windows.Forms.ComboBox();
             this.com_city = new System.Windows.Forms.ComboBox();
@@ -54,22 +53,13 @@ namespace WinForms_in_sqldb
             this.lbl_gender = new System.Windows.Forms.Label();
             this.lbl_age = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
-            this.lbl_id = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_delete = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.btn_edit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.num_age)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(210, 127);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(50, 23);
-            this.numericUpDown1.TabIndex = 56;
             // 
             // txt_qualification
             // 
@@ -100,13 +90,13 @@ namespace WinForms_in_sqldb
             this.txt_address.Location = new System.Drawing.Point(525, 240);
             this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(183, 87);
+            this.txt_address.Size = new System.Drawing.Size(183, 67);
             this.txt_address.TabIndex = 52;
             // 
             // rad_female
             // 
             this.rad_female.AutoSize = true;
-            this.rad_female.Location = new System.Drawing.Point(266, 237);
+            this.rad_female.Location = new System.Drawing.Point(270, 206);
             this.rad_female.Name = "rad_female";
             this.rad_female.Size = new System.Drawing.Size(63, 19);
             this.rad_female.TabIndex = 51;
@@ -117,7 +107,7 @@ namespace WinForms_in_sqldb
             // 
             this.rad_male.AutoSize = true;
             this.rad_male.Checked = true;
-            this.rad_male.Location = new System.Drawing.Point(209, 237);
+            this.rad_male.Location = new System.Drawing.Point(213, 206);
             this.rad_male.Name = "rad_male";
             this.rad_male.Size = new System.Drawing.Size(51, 19);
             this.rad_male.TabIndex = 50;
@@ -127,16 +117,17 @@ namespace WinForms_in_sqldb
             // 
             // btn_view
             // 
-            this.btn_view.Location = new System.Drawing.Point(432, 368);
+            this.btn_view.Location = new System.Drawing.Point(329, 569);
             this.btn_view.Name = "btn_view";
             this.btn_view.Size = new System.Drawing.Size(75, 23);
             this.btn_view.TabIndex = 49;
             this.btn_view.Text = "View";
             this.btn_view.UseVisualStyleBackColor = true;
+            this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
             // 
             // btn_clear
             // 
-            this.btn_clear.Location = new System.Drawing.Point(528, 368);
+            this.btn_clear.Location = new System.Drawing.Point(537, 569);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(75, 23);
             this.btn_clear.TabIndex = 48;
@@ -146,7 +137,7 @@ namespace WinForms_in_sqldb
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(487, 583);
+            this.btn_cancel.Location = new System.Drawing.Point(436, 569);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 47;
@@ -154,25 +145,26 @@ namespace WinForms_in_sqldb
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // btn_edit
+            // btn_update
             // 
-            this.btn_edit.Location = new System.Drawing.Point(336, 368);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(75, 23);
-            this.btn_edit.TabIndex = 46;
-            this.btn_edit.Text = "Update";
-            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_update.Location = new System.Drawing.Point(365, 341);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(75, 23);
+            this.btn_update.TabIndex = 46;
+            this.btn_update.Text = "Update";
+            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_edit_Click);
             // 
-            // btn_add
+            // btn_insert
             // 
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_add.Location = new System.Drawing.Point(240, 368);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(75, 23);
-            this.btn_add.TabIndex = 45;
-            this.btn_add.Text = "Save";
-            this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            this.btn_insert.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btn_insert.Location = new System.Drawing.Point(269, 341);
+            this.btn_insert.Name = "btn_insert";
+            this.btn_insert.Size = new System.Drawing.Size(75, 23);
+            this.btn_insert.TabIndex = 45;
+            this.btn_insert.Text = "Insert";
+            this.btn_insert.UseVisualStyleBackColor = true;
+            this.btn_insert.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // com_country
             // 
@@ -181,6 +173,15 @@ namespace WinForms_in_sqldb
             this.com_country.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.com_country.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.com_country.FormattingEnabled = true;
+            this.com_country.Items.AddRange(new object[] {
+            "India",
+            "USA",
+            "UK",
+            "England",
+            "Rome",
+            "Germany",
+            "Italy",
+            "Spain"});
             this.com_country.Location = new System.Drawing.Point(526, 127);
             this.com_country.Name = "com_country";
             this.com_country.Size = new System.Drawing.Size(142, 23);
@@ -228,7 +229,44 @@ namespace WinForms_in_sqldb
             this.com_state.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.com_state.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.com_state.FormattingEnabled = true;
-            this.com_state.Location = new System.Drawing.Point(210, 301);
+            this.com_state.Items.AddRange(new object[] {
+            "Andhra Pradesh",
+            "Arunachal Pradesh",
+            "Assam",
+            "Bihar",
+            "Chhattisgarh",
+            "Goa",
+            "Gujarat",
+            "Haryana",
+            "Himachal Pradesh",
+            "Jammu and Kashmir",
+            "Jharkhand",
+            "Karnataka",
+            "Kerala",
+            "Madhya Pradesh",
+            "Maharashtra",
+            "Manipur",
+            "Meghalaya",
+            "Mizoram",
+            "Nagaland",
+            "Odisha",
+            "Punjab",
+            "Rajasthan",
+            "Sikkim",
+            "Tamil Nadu",
+            "Telangana",
+            "Tripura",
+            "Uttarakhand",
+            "Uttar Pradesh",
+            "West Bengal",
+            "Andaman and Nicobar Islands",
+            "Chandigarh",
+            "Dadra and Nagar Haveli",
+            "Daman and Diu",
+            "Delhi",
+            "Lakshadweep",
+            "Puducherry"});
+            this.com_state.Location = new System.Drawing.Point(214, 278);
             this.com_state.Name = "com_state";
             this.com_state.Size = new System.Drawing.Size(142, 23);
             this.com_state.TabIndex = 43;
@@ -300,21 +338,21 @@ namespace WinForms_in_sqldb
             "Uttara Kannada (Karwar)",
             "Vijayapura (Bijapur)",
             "Yadgir"});
-            this.com_city.Location = new System.Drawing.Point(209, 269);
+            this.com_city.Location = new System.Drawing.Point(214, 246);
             this.com_city.Name = "com_city";
             this.com_city.Size = new System.Drawing.Size(143, 23);
             this.com_city.TabIndex = 42;
             // 
             // num_age
             // 
-            this.num_age.Location = new System.Drawing.Point(210, 196);
+            this.num_age.Location = new System.Drawing.Point(214, 165);
             this.num_age.Name = "num_age";
             this.num_age.Size = new System.Drawing.Size(50, 23);
             this.num_age.TabIndex = 41;
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(210, 158);
+            this.txt_name.Location = new System.Drawing.Point(214, 127);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(142, 23);
             this.txt_name.TabIndex = 40;
@@ -357,7 +395,7 @@ namespace WinForms_in_sqldb
             this.lbl_state.AutoSize = true;
             this.lbl_state.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_state.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_state.Location = new System.Drawing.Point(94, 305);
+            this.lbl_state.Location = new System.Drawing.Point(97, 282);
             this.lbl_state.Name = "lbl_state";
             this.lbl_state.Size = new System.Drawing.Size(53, 19);
             this.lbl_state.TabIndex = 36;
@@ -368,7 +406,7 @@ namespace WinForms_in_sqldb
             this.lbl_city.AutoSize = true;
             this.lbl_city.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_city.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_city.Location = new System.Drawing.Point(93, 273);
+            this.lbl_city.Location = new System.Drawing.Point(97, 246);
             this.lbl_city.Name = "lbl_city";
             this.lbl_city.Size = new System.Drawing.Size(46, 19);
             this.lbl_city.TabIndex = 35;
@@ -379,7 +417,7 @@ namespace WinForms_in_sqldb
             this.lbl_gender.AutoSize = true;
             this.lbl_gender.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_gender.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_gender.Location = new System.Drawing.Point(93, 238);
+            this.lbl_gender.Location = new System.Drawing.Point(97, 207);
             this.lbl_gender.Name = "lbl_gender";
             this.lbl_gender.Size = new System.Drawing.Size(68, 19);
             this.lbl_gender.TabIndex = 34;
@@ -390,7 +428,7 @@ namespace WinForms_in_sqldb
             this.lbl_age.AutoSize = true;
             this.lbl_age.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_age.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_age.Location = new System.Drawing.Point(93, 200);
+            this.lbl_age.Location = new System.Drawing.Point(97, 169);
             this.lbl_age.Name = "lbl_age";
             this.lbl_age.Size = new System.Drawing.Size(45, 19);
             this.lbl_age.TabIndex = 33;
@@ -401,22 +439,11 @@ namespace WinForms_in_sqldb
             this.lbl_name.AutoSize = true;
             this.lbl_name.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_name.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_name.Location = new System.Drawing.Point(93, 162);
+            this.lbl_name.Location = new System.Drawing.Point(97, 131);
             this.lbl_name.Name = "lbl_name";
             this.lbl_name.Size = new System.Drawing.Size(58, 19);
             this.lbl_name.TabIndex = 32;
             this.lbl_name.Text = "Name :";
-            // 
-            // lbl_id
-            // 
-            this.lbl_id.AutoSize = true;
-            this.lbl_id.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_id.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_id.Location = new System.Drawing.Point(93, 131);
-            this.lbl_id.Name = "lbl_id";
-            this.lbl_id.Size = new System.Drawing.Size(32, 19);
-            this.lbl_id.TabIndex = 31;
-            this.lbl_id.Text = "Id :";
             // 
             // label1
             // 
@@ -434,40 +461,43 @@ namespace WinForms_in_sqldb
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(74, 419);
+            this.dataGridView1.Location = new System.Drawing.Point(66, 387);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(655, 145);
             this.dataGridView1.TabIndex = 57;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(378, 583);
+            this.btn_delete.Location = new System.Drawing.Point(464, 341);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(75, 23);
             this.btn_delete.TabIndex = 59;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
-            // button1
+            // btn_edit
             // 
-            this.button1.Location = new System.Drawing.Point(254, 583);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_edit.Location = new System.Drawing.Point(223, 569);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(75, 23);
+            this.btn_edit.TabIndex = 58;
+            this.btn_edit.Text = "Edit";
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.button1_Click);
             // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 635);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(800, 628);
             this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.txt_qualification);
             this.Controls.Add(this.lbl_qualification);
             this.Controls.Add(this.txt_phone_no);
@@ -477,8 +507,8 @@ namespace WinForms_in_sqldb
             this.Controls.Add(this.btn_view);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_cancel);
-            this.Controls.Add(this.btn_edit);
-            this.Controls.Add(this.btn_add);
+            this.Controls.Add(this.btn_update);
+            this.Controls.Add(this.btn_insert);
             this.Controls.Add(this.com_country);
             this.Controls.Add(this.com_state);
             this.Controls.Add(this.com_city);
@@ -492,12 +522,10 @@ namespace WinForms_in_sqldb
             this.Controls.Add(this.lbl_gender);
             this.Controls.Add(this.lbl_age);
             this.Controls.Add(this.lbl_name);
-            this.Controls.Add(this.lbl_id);
             this.Controls.Add(this.label1);
             this.Name = "Register";
-            this.Text = "Form1";
+            this.Text = "CRUD OPERATION";
             this.Load += new System.EventHandler(this.Register_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_age)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -506,8 +534,6 @@ namespace WinForms_in_sqldb
         }
 
         #endregion
-
-        public System.Windows.Forms.NumericUpDown numericUpDown1;
         public System.Windows.Forms.TextBox txt_qualification;
         private System.Windows.Forms.Label lbl_qualification;
         public System.Windows.Forms.TextBox txt_phone_no;
@@ -517,8 +543,8 @@ namespace WinForms_in_sqldb
         private System.Windows.Forms.Button btn_view;
         public System.Windows.Forms.Button btn_clear;
         public System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.Button btn_edit;
-        public System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Button btn_update;
+        public System.Windows.Forms.Button btn_insert;
         public System.Windows.Forms.ComboBox com_country;
         public System.Windows.Forms.ComboBox com_state;
         public System.Windows.Forms.ComboBox com_city;
@@ -532,11 +558,10 @@ namespace WinForms_in_sqldb
         private System.Windows.Forms.Label lbl_gender;
         private System.Windows.Forms.Label lbl_age;
         private System.Windows.Forms.Label lbl_name;
-        private System.Windows.Forms.Label lbl_id;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.Button btn_delete;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btn_edit;
     }
 }
 
