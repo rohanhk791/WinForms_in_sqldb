@@ -15,6 +15,12 @@ namespace WinForms_in_sqldb
 {  
     public partial class Register : Form
     {
+        public class sqlRegistrationDetail
+        {
+            public int id, age;
+            public long phone_no;
+            public string name, gender, city, state, country, address, qualification;
+        }
         public Register()
         {
             InitializeComponent();
@@ -23,10 +29,8 @@ namespace WinForms_in_sqldb
         sqlRegistrationDetail sqldet = new sqlRegistrationDetail();
         int _index;
         int _list;
-        
-        SqlConnection con = new SqlConnection(@"Data Source=ROHAN\SQLEXPRESS;Initial Catalog=RegistrationDetails;Integrated Security=True");      
-        public int id;
-        
+        SqlConnection con = new SqlConnection(@"Data Source=ROHAN\SQLEXPRESS;Initial Catalog=RegistrationDetails;Integrated Security=True");                                                                                                                                                                                public int id;
+
         private void Register_Load(object sender, EventArgs e)
         {
             detailslist();
@@ -41,19 +45,13 @@ namespace WinForms_in_sqldb
             con.Close();
             dataGridView1.DataSource = table;
         }
-        public class sqlRegistrationDetail
-        {
-            public int id, age;
-            public long phone_no;
-            public string name, gender, city, state, country, address, qualification;
-        }
 
         public bool validate()
         {
             try
             {
                 if (string.IsNullOrEmpty(txt_name.Text)) { string message = "Enter valid name"; string title = "Warning"; MessageBox.Show(message, title); return false; }
-                if (string.IsNullOrEmpty(rad_male.Text)) { string message = "Enter valid gender"; string title = "Warning"; MessageBox.Show(message, title); }
+                if (string.IsNullOrEmpty(genderChk()) ){ string message = "Enter valid gender"; string title = "Warning"; MessageBox.Show(message, title); }
                 if (string.IsNullOrEmpty(txt_qualification.Text)) { string message = "Enter valid qualification"; string title = "Warning"; MessageBox.Show(message, title); return false; }
                 if (string.IsNullOrEmpty(com_city.Text)) { string message = "Enter valid city"; string title = "Warning"; MessageBox.Show(message, title); return false; }
                 if (string.IsNullOrEmpty(com_state.Text)) { string message = "Enter valid state"; string title = "Warning"; MessageBox.Show(message, title); return false; }
@@ -97,8 +95,7 @@ namespace WinForms_in_sqldb
                         {
                             ((NumericUpDown)clear).Text = String.Empty;
                         }
-                    }
-                    //txt_name.Focus();
+                    }                    
                 }
             }
             catch (Exception E)
