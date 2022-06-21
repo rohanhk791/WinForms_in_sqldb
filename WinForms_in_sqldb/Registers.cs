@@ -149,37 +149,44 @@ namespace WinForms_in_sqldb
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            if (validate())
+            try
             {
-                SqlCommand cmd = new SqlCommand("insert into detail values(@name,@age,@gender,@city,@state,@country,@phone_no,@address,@qualification)", con);
-                cmd.CommandType = CommandType.Text;                
-                cmd.Parameters.AddWithValue("@name", txt_name.Text);
-                cmd.Parameters.AddWithValue("@age", num_age.Text);
-                cmd.Parameters.AddWithValue("@gender", rad_male.Text);
-                cmd.Parameters.AddWithValue("@city", com_city.Text);
-                cmd.Parameters.AddWithValue("@state", com_state.Text);
-                cmd.Parameters.AddWithValue("@country", com_country.Text);
-                cmd.Parameters.AddWithValue("@phone_no", txt_phone_no.Text);
-                cmd.Parameters.AddWithValue("@address", txt_address.Text);
-                cmd.Parameters.AddWithValue("@qualification", txt_qualification.Text);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+                if (validate())
+                {
+                    SqlCommand cmd = new SqlCommand("insert into detail values(@name,@age,@gender,@city,@state,@country,@phone_no,@address,@qualification)", con);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@name", txt_name.Text);
+                    cmd.Parameters.AddWithValue("@age", num_age.Text);
+                    cmd.Parameters.AddWithValue("@gender", rad_male.Text);
+                    cmd.Parameters.AddWithValue("@city", com_city.Text);
+                    cmd.Parameters.AddWithValue("@state", com_state.Text);
+                    cmd.Parameters.AddWithValue("@country", com_country.Text);
+                    cmd.Parameters.AddWithValue("@phone_no", txt_phone_no.Text);
+                    cmd.Parameters.AddWithValue("@address", txt_address.Text);
+                    cmd.Parameters.AddWithValue("@qualification", txt_qualification.Text);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
 
-                string message = "Data Successfully saved in database";
-                string title = "Warning";
-                MessageBox.Show(message, title);
+                    string message = "Data Successfully saved in database";
+                    string title = "Warning";
+                    MessageBox.Show(message, title);
+                }
+                else
+                {
+                    string message = "Data unSuccessfully";
+                    string title = "Warning";
+                    MessageBox.Show(message, title);
+                }
+                detailslist();
             }
-            else
+
+            catch (Exception E)
             {
-                string message = "Data unSuccessfully";
-                string title = "Warning";
-                MessageBox.Show(message, title);
+                MessageBox.Show(E.Message);
             }
-            detailslist();
-            }
-
-        private void btn_cancel_Click(object sender, EventArgs e)
+        }
+            private void btn_cancel_Click(object sender, EventArgs e)
         {        
             Application.Exit();
         }
