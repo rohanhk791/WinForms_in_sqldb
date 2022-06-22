@@ -51,7 +51,7 @@ namespace WinForms_in_sqldb
             try
             {
                 if (string.IsNullOrEmpty(txt_name.Text)) { string message = "Enter valid name"; string title = "Warning"; MessageBox.Show(message, title); return false; }
-                if (string.IsNullOrEmpty(genderChk()) ){ string message = "Enter valid gender"; string title = "Warning"; MessageBox.Show(message, title); }
+                if (string.IsNullOrEmpty(genderChk()) ) { string message = "Enter valid gender"; string title = "Warning"; MessageBox.Show(message, title); }
                 if (string.IsNullOrEmpty(txt_qualification.Text)) { string message = "Enter valid qualification"; string title = "Warning"; MessageBox.Show(message, title); return false; }
                 if (string.IsNullOrEmpty(com_city.Text)) { string message = "Enter valid city"; string title = "Warning"; MessageBox.Show(message, title); return false; }
                 if (string.IsNullOrEmpty(com_state.Text)) { string message = "Enter valid state"; string title = "Warning"; MessageBox.Show(message, title); return false; }
