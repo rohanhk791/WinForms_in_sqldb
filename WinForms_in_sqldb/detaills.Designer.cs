@@ -46,6 +46,7 @@ namespace WinForms_in_sqldb
             this.btn_close.TabIndex = 11;
             this.btn_close.Text = "Close";
             this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // btn_clear
             // 
@@ -73,6 +74,7 @@ namespace WinForms_in_sqldb
             this.btn_edit.TabIndex = 8;
             this.btn_edit.Text = "Edit";
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // dataGridView1
             // 

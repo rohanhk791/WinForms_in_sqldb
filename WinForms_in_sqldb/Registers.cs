@@ -28,12 +28,22 @@ namespace WinForms_in_sqldb
 
         sqlRegistrationDetail sqldet = new sqlRegistrationDetail();
         int _index;
-        int _list;
+        
         SqlConnection con = new SqlConnection(@"Data Source=ROHAN\SQLEXPRESS;Initial Catalog=RegistrationDetails;Integrated Security=True");                                                                                                                                                                                public int id;
 
         private void Register_Load(object sender, EventArgs e)
         {
             detailslist();
+            dataGridView1.Columns[0].Name = "id";
+            dataGridView1.Columns[1].Name = "name";
+            dataGridView1.Columns[2].Name = "age";
+            dataGridView1.Columns[3].Name = "gender";
+            dataGridView1.Columns[4].Name = "city";
+            dataGridView1.Columns[5].Name = "state";
+            dataGridView1.Columns[6].Name = "country";
+            dataGridView1.Columns[7].Name = "phone_no";
+            dataGridView1.Columns[8].Name = "address";
+            dataGridView1.Columns[9].Name = "qualification";
         }
         public void detailslist()
         {
@@ -75,33 +85,23 @@ namespace WinForms_in_sqldb
 
         public void clear()
         {
-            try
-            {
+         try
+            {   
+                
+                txt_name.Text = string.Empty;
+                txt_address.Text = string.Empty;
+                txt_phone_no.Text = string.Empty;
+                txt_qualification.Text = string.Empty;
+                rad_male.Text = string.Empty;
+                com_city.Text = string.Empty;
+                com_state.Text = string.Empty;
+                com_country.Text = string.Empty;
+                num_age.Text = string.Empty;
 
-                if (validate())
-                {
-                    id = 0;
-                    foreach (var clear in this.Controls)
-                    {
-                        if (clear is TextBox)
-                        {
-                            ((TextBox)clear).Text = String.Empty;
-                        }
-                        if (clear is ComboBox)
-                        {
-                            ((ComboBox)clear).Text = String.Empty;
-                        }
-                        if (clear is NumericUpDown)
-                        {
-                            ((NumericUpDown)clear).Text = String.Empty;
-                        }
-                    }                    
-                }
             }
             catch (Exception E)
             {
-                MessageBox.Show(E.Message);
-                
+                MessageBox.Show(E.Message);                
             }
         }
         public bool validmobilenumber()
@@ -151,15 +151,15 @@ namespace WinForms_in_sqldb
                     cmd.ExecuteNonQuery();
                     con.Close();
 
-                    string message = "Data Successfully saved in database";
+                    string message = "Data saved";
                     string title = "Warning";
                     MessageBox.Show(message, title);
                 }
                 else
                 {
-                    string message = "Data unSuccessfully";
-                    string title = "Warning";
-                    MessageBox.Show(message, title);
+                    //string message = "Data unSuccessfully";
+                    //string title = "Warning";
+                    //MessageBox.Show(message, title);
                 }
                 detailslist();
             }
@@ -190,8 +190,7 @@ namespace WinForms_in_sqldb
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            _index = e.RowIndex;
-            _list = e.RowIndex;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -202,8 +201,6 @@ namespace WinForms_in_sqldb
         {
             try
             {
-                if (id > 0)
-                {
                     SqlCommand cmd = new SqlCommand("update detail set name = @name,age = @age,gender = @gender,city = @city, state = @state, country = @country, qualification = @qualification where id =@id", con);
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@name", txt_name.Text);
@@ -215,11 +212,11 @@ namespace WinForms_in_sqldb
                     cmd.Parameters.AddWithValue("@phone_no", txt_phone_no.Text);
                     cmd.Parameters.AddWithValue("@address", txt_address.Text);
                     cmd.Parameters.AddWithValue("@qualification", txt_qualification.Text);
-                    cmd.Parameters.AddWithValue("@id",this.id);
+                    cmd.Parameters.AddWithValue("@id", this.id);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
-                  _index= dataGridView1.CurrentCell.RowIndex;
+                    _index = dataGridView1.CurrentCell.RowIndex;
 
                     dataGridView1.Rows[_index].Cells[1].Value = txt_name.Text;
                     dataGridView1.Rows[_index].Cells[2].Value = num_age.Text;
@@ -231,19 +228,11 @@ namespace WinForms_in_sqldb
                     dataGridView1.Rows[_index].Cells[8].Value = txt_address.Text;
                     dataGridView1.Rows[_index].Cells[9].Value = txt_qualification.Text;
 
-                    string message = "Data updated in database";
+                    string message = "Data updated";
                     string title = "Warning";
                     MessageBox.Show(message, title);
-
-                  
-                }
-                else
-                {
-                    string message = "Data not updated";
-                    string title = "Warning";
-                    MessageBox.Show(message, title);
-                }
-                //detailslist();
+               
+                detailslist();
             }
             catch (Exception E)
             {
@@ -273,9 +262,10 @@ namespace WinForms_in_sqldb
                     _index = dataGridView1.CurrentCell.RowIndex;
                     dataGridView1.Rows.RemoveAt(_index);
 
-                    string message = "Data Successfully deleted in database";
+                    string message = "Data deleted";
                     string title = "Warning";
                     MessageBox.Show(message, title);
+                    clear();
                 }
                 else
                 {
@@ -283,26 +273,29 @@ namespace WinForms_in_sqldb
                     string title = "Warning";
                     MessageBox.Show(message, title);
                 }
+                
             }
             catch(Exception E)
             {
-                MessageBox.Show(E.Message);
+             MessageBox.Show(E.Message);
             }
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-                txt_name.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                num_age.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                rad_male.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                com_city.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-                com_state.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                com_country.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-                txt_phone_no.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
-                txt_address.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
-                txt_qualification.Text = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
+                     DataGridViewRow edit = dataGridView1.Rows[e.RowIndex];
+                     id = Convert.ToInt32(dataGridView1.Rows[_index].Cells["id"].Value);
+                     txt_name.Text = edit.Cells["name"].Value.ToString();
+                     num_age.Value = Convert.ToInt32(edit.Cells["age"].Value);
+                   //genderChk.(edit.Cells["Gender"].Value.ToString());
+                   txt_qualification.Text = edit.Cells["qualification"].Value.ToString();
+                   com_state.Text = edit.Cells["state"].Value.ToString();
+                   com_city.Text = edit.Cells["city"].Value.ToString();
+                   com_country.Text = edit.Cells["country"].Value.ToString();
+                    txt_phone_no.Text = edit.Cells["phone_no"].Value.ToString();
+                   txt_address.Text = edit.Cells["address"].Value.ToString();
+                    Show();
             }
             catch(Exception E)
             {
