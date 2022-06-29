@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-
-
 namespace WinForms_in_sqldb
 {
     public partial class singlefilter : Form
@@ -21,7 +19,6 @@ namespace WinForms_in_sqldb
         {
             InitializeComponent();
         }
-
         private void singlefilter_Load(object sender, EventArgs e)
         {
             pan_name.Visible = false;
@@ -47,26 +44,18 @@ namespace WinForms_in_sqldb
                 dataGridView2.Columns[10].Name = "qualification";
 
                 if (com_select.Text == string.Empty)
-                {
-                    
+                {                  
                     hidePannel();
-                }
-                //hidePannel();
-             
-             
-               
+                }                           
             }
             catch (Exception E)
             {
                 MessageBox.Show(E.Message);
             }
         }
-
         public void hidePannel()
         {
-            //pan_griddata.Visible = true;
-
-            
+            //pan_griddata.Visible = true;         
             pan_name.Visible = false;
             //pan_gender.Visible = false;
             pan_age.Visible = false;
@@ -76,15 +65,11 @@ namespace WinForms_in_sqldb
             //pan_address.Visible = false;
             //pan_phone_no.Visible = false;
             //pan_qualification.Visible = false;
-        
-
         }
         public void detailslist()
         {
-
             if (com_select.Text == "name")
-            {
-               
+            {            
                 pan_name.Show();
                 pan_name.BringToFront();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM detail WHERE name ='" + txt_name.Text + "'", con);
@@ -98,7 +83,6 @@ namespace WinForms_in_sqldb
             }
             if (com_select.Text == "age")
             {
-
                 pan_age.Show();
                 pan_age.BringToFront();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM detail WHERE age ='" + num_age.Text + "'", con);
@@ -112,7 +96,6 @@ namespace WinForms_in_sqldb
             }
             if (com_select.Text == "gender")
             {
-
                 pan_gender.Show();
                 pan_gender.BringToFront();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM detail WHERE gender ='" + rad_male + "'", con);
@@ -125,7 +108,6 @@ namespace WinForms_in_sqldb
             }
             if (com_select.Text == "city")
             {
-
                 pan_city.Show();
                 pan_city.BringToFront();
 
@@ -137,12 +119,8 @@ namespace WinForms_in_sqldb
                 con.Close();
                 dataGridView2.DataSource = table;
             }
-
-
-
             if (com_select.Text == "state")
             {
-
                 pan_state.Show();
                 pan_state.BringToFront();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM detail WHERE state ='" + com_state.Text + "'", con);
@@ -155,7 +133,6 @@ namespace WinForms_in_sqldb
             }
             if (com_select.Text == "country")
             {
-
                 pan_country.Show();
                 pan_country.BringToFront();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM detail WHERE country ='" + com_country.Text + "'", con);
@@ -168,7 +145,6 @@ namespace WinForms_in_sqldb
             }
             if (com_select.Text == "address")
             {
-
                 pan_address.Show();
                 pan_address.BringToFront();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM detail WHERE address ='" + txt_address.Text + "'", con);
@@ -181,7 +157,6 @@ namespace WinForms_in_sqldb
             }
             if (com_select.Text == "phone_no")
             {
-
                 pan_phone_no.Show();
                 pan_phone_no.BringToFront();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM detail WHERE phone_no ='" + txt_phone_no.Text + "'", con);
@@ -194,10 +169,8 @@ namespace WinForms_in_sqldb
             }
             if (com_select.Text == "qualification")
             {
-
                 pan_qualification.Show();
                 pan_qualification.BringToFront();
-
                 SqlCommand cmd = new SqlCommand("SELECT * FROM detail WHERE qualification ='" + com_qualification.Text + "'", con);
                 DataTable table = new DataTable();
                 con.Open();
@@ -206,9 +179,7 @@ namespace WinForms_in_sqldb
                 con.Close();
                 dataGridView2.DataSource = table;
             }
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             detailslist();
