@@ -16,5 +16,10 @@ namespace WinForms_in_sqldb
         {
             InitializeComponent();
         }
+
+        private void rad_male_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
