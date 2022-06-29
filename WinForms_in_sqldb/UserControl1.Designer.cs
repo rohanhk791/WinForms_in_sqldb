@@ -54,6 +54,14 @@ namespace WinForms_in_sqldb
             this.txt_address = new System.Windows.Forms.TextBox();
             this.lbl_address = new System.Windows.Forms.Label();
             this.pan_address = new System.Windows.Forms.Panel();
+            this.pan_name = new System.Windows.Forms.Panel();
+            this.txt_name = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pan_griddata = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btn_close = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.num_age)).BeginInit();
             this.pan_age.SuspendLayout();
             this.pan_gender.SuspendLayout();
@@ -63,6 +71,9 @@ namespace WinForms_in_sqldb
             this.pan_qualification.SuspendLayout();
             this.pan_phone_no.SuspendLayout();
             this.pan_address.SuspendLayout();
+            this.pan_name.SuspendLayout();
+            this.pan_griddata.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // com_country
@@ -431,7 +442,7 @@ namespace WinForms_in_sqldb
             // 
             // txt_phone_no
             // 
-            this.txt_phone_no.Location = new System.Drawing.Point(119, 3);
+            this.txt_phone_no.Location = new System.Drawing.Point(119, 7);
             this.txt_phone_no.Name = "txt_phone_no";
             this.txt_phone_no.Size = new System.Drawing.Size(143, 23);
             this.txt_phone_no.TabIndex = 117;
@@ -449,10 +460,10 @@ namespace WinForms_in_sqldb
             // 
             // txt_address
             // 
-            this.txt_address.Location = new System.Drawing.Point(114, 18);
+            this.txt_address.Location = new System.Drawing.Point(110, 11);
             this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(183, 67);
+            this.txt_address.Size = new System.Drawing.Size(158, 25);
             this.txt_address.TabIndex = 117;
             // 
             // lbl_address
@@ -460,7 +471,7 @@ namespace WinForms_in_sqldb
             this.lbl_address.AutoSize = true;
             this.lbl_address.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_address.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_address.Location = new System.Drawing.Point(11, 18);
+            this.lbl_address.Location = new System.Drawing.Point(7, 11);
             this.lbl_address.Name = "lbl_address";
             this.lbl_address.Size = new System.Drawing.Size(73, 19);
             this.lbl_address.TabIndex = 116;
@@ -472,13 +483,88 @@ namespace WinForms_in_sqldb
             this.pan_address.Controls.Add(this.lbl_address);
             this.pan_address.Location = new System.Drawing.Point(343, 213);
             this.pan_address.Name = "pan_address";
-            this.pan_address.Size = new System.Drawing.Size(319, 112);
+            this.pan_address.Size = new System.Drawing.Size(303, 58);
             this.pan_address.TabIndex = 118;
+            // 
+            // pan_name
+            // 
+            this.pan_name.Controls.Add(this.txt_name);
+            this.pan_name.Controls.Add(this.label1);
+            this.pan_name.Location = new System.Drawing.Point(35, 272);
+            this.pan_name.Name = "pan_name";
+            this.pan_name.Size = new System.Drawing.Size(271, 43);
+            this.pan_name.TabIndex = 118;
+            // 
+            // txt_name
+            // 
+            this.txt_name.Location = new System.Drawing.Point(96, 10);
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(143, 23);
+            this.txt_name.TabIndex = 117;
+            this.txt_name.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(10, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 19);
+            this.label1.TabIndex = 116;
+            this.label1.Text = "Name:";
+            // 
+            // pan_griddata
+            // 
+            this.pan_griddata.Controls.Add(this.dataGridView2);
+            this.pan_griddata.Controls.Add(this.btn_close);
+            this.pan_griddata.Controls.Add(this.btn_delete);
+            this.pan_griddata.Location = new System.Drawing.Point(14, 352);
+            this.pan_griddata.Name = "pan_griddata";
+            this.pan_griddata.Size = new System.Drawing.Size(707, 198);
+            this.pan_griddata.TabIndex = 119;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.checkbox});
+            this.dataGridView2.Location = new System.Drawing.Point(15, 13);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(665, 133);
+            this.dataGridView2.TabIndex = 82;
+            // 
+            // checkbox
+            // 
+            this.checkbox.HeaderText = "Select";
+            this.checkbox.Name = "checkbox";
+            // 
+            // btn_close
+            // 
+            this.btn_close.Location = new System.Drawing.Point(389, 161);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(91, 23);
+            this.btn_close.TabIndex = 83;
+            this.btn_close.Text = "Close";
+            this.btn_close.UseVisualStyleBackColor = true;
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Location = new System.Drawing.Point(239, 161);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(94, 23);
+            this.btn_delete.TabIndex = 82;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.UseVisualStyleBackColor = true;
             // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pan_griddata);
+            this.Controls.Add(this.pan_name);
             this.Controls.Add(this.pan_address);
             this.Controls.Add(this.pan_phone_no);
             this.Controls.Add(this.pan_qualification);
@@ -488,7 +574,8 @@ namespace WinForms_in_sqldb
             this.Controls.Add(this.pan_gender);
             this.Controls.Add(this.pan_age);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(738, 408);
+            this.Size = new System.Drawing.Size(738, 607);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.num_age)).EndInit();
             this.pan_age.ResumeLayout(false);
             this.pan_age.PerformLayout();
@@ -506,6 +593,10 @@ namespace WinForms_in_sqldb
             this.pan_phone_no.PerformLayout();
             this.pan_address.ResumeLayout(false);
             this.pan_address.PerformLayout();
+            this.pan_name.ResumeLayout(false);
+            this.pan_name.PerformLayout();
+            this.pan_griddata.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -537,5 +628,13 @@ namespace WinForms_in_sqldb
         public System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.Label lbl_address;
         private System.Windows.Forms.Panel pan_address;
+        private System.Windows.Forms.Panel pan_name;
+        public System.Windows.Forms.TextBox txt_name;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pan_griddata;
+        public System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn checkbox;
+        public System.Windows.Forms.Button btn_close;
+        public System.Windows.Forms.Button btn_delete;
     }
 }
