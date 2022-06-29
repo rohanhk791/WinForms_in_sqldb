@@ -24,6 +24,12 @@ namespace WinForms_in_sqldb
         {
             try
             {
+                
+                getqualification();
+                if (com_qualification.Items.Count > 0)
+                {
+                    com_qualification.SelectedIndex = -1;
+                }
                 detailslist();
                 dataGridView2.Columns[1].Name = "id";
                 dataGridView2.Columns[2].Name = "name";
@@ -57,6 +63,20 @@ namespace WinForms_in_sqldb
             validate();    
         }
 
+        public void getqualification()
+        {   
+            
+             string query = "select distinct qualification from detail";
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, con);
+                con.Open();
+                DataSet dt = new DataSet();
+                dataAdapter.Fill(dt, "qualification");
+                com_qualification.DisplayMember = "qualification";
+                com_qualification.ValueMember = "qualification";
+                com_qualification.DataSource = dt.Tables["qualification"];
+
+                con.Close();
+        }
         private void filters_Validating(object sender, CancelEventArgs e)
         {               
         }
